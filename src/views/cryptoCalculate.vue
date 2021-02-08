@@ -1,6 +1,6 @@
 <template>
   <div class="cryptoCalculate">
-    <calculator></calculator>
+    <calculator/>
     
   </div>
 </template>
