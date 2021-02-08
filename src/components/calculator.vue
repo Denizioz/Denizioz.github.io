@@ -16,6 +16,9 @@
         <p>{{cryptoCategories}}</p>
         <h3>Image</h3>
         <img :src="cryptoImage" alt="">
+        <div v-for="(value, name) in otherCurrency" :key="name.id">
+            {{name}}: {{value}}
+        </div>
     </div>
 </template>
 
@@ -38,7 +41,8 @@ export default {
           cryptoPrice: 0,
           cryptoImage: "https://assets.coingecko.com/coins/images/6450/small/linklogo.png?1547042644",
           sek: 0,
-          cryptoValue: 0
+          cryptoValue: 0,
+          otherCurrency: {}
       }
   },
   methods: {
@@ -62,6 +66,9 @@ export default {
               savedCategories = savedCategories.concat(element + ", ")
           }
           this.cryptoCategories = savedCategories
+          this.otherCurrency.usd = result.market_data.current_price.usd
+          this.otherCurrency.eur = result.market_data.current_price.eur
+          this.otherCurrency.btc = result.market_data.current_price.btc
       })
       }
   },
