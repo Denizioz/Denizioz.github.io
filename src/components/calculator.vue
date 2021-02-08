@@ -8,8 +8,8 @@
         <input type="text" name="cryptoValue" id="crypto" v-model="currencyCalculator" placeholder="Crypto">
         </div>
         <div v-else><p>Input value and choose currency</p></div>
-        <input type="button" value="DogeCoin" @click="getDogeData">
-        <input type="button" value="Chainlink" @click="getLinkData">
+        <b-button variant="primary" @click="getDogeData" id="givemespace">Dogecoin</b-button>
+        <b-button variant="primary" @click="getLinkData" id="givemespace">Chainlink</b-button>
         <h3>description</h3>
         <p id="p-padding" v-html="cryptoDescription"></p>
         <h3>Categories</h3>
@@ -19,6 +19,7 @@
         <div v-for="(value, name) in otherCurrency" :key="name.id">
             {{name}}: {{value}}
         </div>
+        
     </div>
 </template>
 
@@ -97,5 +98,9 @@ h3 {
 #p-padding {
     padding-left: 50px;
     padding-right: 50px;
+}
+
+#givemespace {
+    margin: 5px;
 }
 </style>
