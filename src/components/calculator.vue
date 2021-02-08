@@ -34,6 +34,11 @@ export default {
             this.cryptoValue = newCur
         }
     }},
+
+    created() {
+
+    },
+
   data() {
       return {
           cryptoName: "Crypto",
