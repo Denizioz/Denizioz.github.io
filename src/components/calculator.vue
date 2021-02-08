@@ -1,14 +1,17 @@
 <template>
     <div>
-        <h1>crypto calculator</h1>
+        <h1>{{cryptoName}} calculator</h1>
         <h2>Current Value SEK</h2>
         <h4>{{cryptoPrice}}</h4>
         <input type="text" name="moneyValue" id="money" placeholder="Currency" v-model="sek">
+        <div v-if="cryptoPrice !== 0">
         <input type="text" name="cryptoValue" id="crypto" v-model="currencyCalculator" placeholder="Crypto">
+        </div>
+        <div v-else><p>Input value and choose currency</p></div>
         <input type="button" value="DogeCoin" @click="getDogeData">
         <input type="button" value="Chainlink" @click="getLinkData">
-        <h3>description</h3><br>
-        {{cryptoDescription}}
+        <h3>description</h3>
+        <p id="p-padding" v-html="cryptoDescription"></p>
         <h3>Categories</h3>
         <p>{{cryptoCategories}}</p>
         <h3>Image</h3>
@@ -35,7 +38,7 @@ export default {
           cryptoPrice: 0,
           cryptoImage: "https://assets.coingecko.com/coins/images/6450/small/linklogo.png?1547042644",
           sek: 0,
-          cryptoValue: null
+          cryptoValue: 0
       }
   },
   methods: {
@@ -77,5 +80,15 @@ input {
 
 h1 {
     color: rgb(0, 0, 168);
+    font-weight: bold;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+#p-padding {
+    padding-left: 50px;
+    padding-right: 50px;
 }
 </style>
